@@ -1,0 +1,19 @@
+{
+    "name": "jdf2/AchieveCraft",
+    "description": "Generates Minecraft Achievement images",
+    "keywords": ["minecraft", "achievement", "image"],
+    "homepage": "http://github.com/jdf221/AchieveCraft",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jared Furlow",
+            "email": "jdf2.furlow@gmail.com",
+            "homepage": "http://jdf2.org/"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "monolog/monolog": "^1.17",
+        "slim/slim": "~2.0"
+    }
+}
