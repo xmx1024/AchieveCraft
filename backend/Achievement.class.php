@@ -1,6 +1,6 @@
 <?php
 
-namespace jdf2\AchieveCraft;
+namespace jdf221\AchieveCraft;
 class Achievement
 {
 

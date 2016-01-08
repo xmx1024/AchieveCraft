@@ -4,3 +4,21 @@
 .icon-block .material-icons {
 	font-size: inherit;
 }
+
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.icon-preview{
+    width: 32px;
+    height: 32px;
+    padding-left: 2px;
+    float: left;
+}

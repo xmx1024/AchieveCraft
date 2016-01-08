@@ -1,16 +1,22 @@
 <?php
 
-namespace jdf2\AchieveCraft;
+namespace jdf221\AchieveCraft;
 class Icon
 {
+
+    private $getIconFunction;
 
     private $image;
     private $iconId;
 
     private $missingIcon;
 
-    public function __construct($iconId)
+    public function __construct($getIconFunction)
     {
+        $this->getIconFunction = $getIconFunction; //TODO: Might move this to it's own function to be more consistent with how Achievement.class.php works...
+    }
+
+    public function setIconId($iconId){
         $this->iconId = $iconId;
     }
 
@@ -22,13 +28,12 @@ class Icon
         $this->missingIcon = $path;
     }
 
-    public function getIcon()
+    private function getIcon()
     {
-        $Mongo =  new \MongoClient();
-        $AcheiveCraftDB = $Mongo->achievecraft;
-        $foundIcon = $AcheiveCraftDB->customicons->findOne(array("id" => $this->iconId));
+        $getIconFunction = $this->getIconFunction;
+        $foundIcon = $getIconFunction($this->iconId);
 
-        if($foundIcon) {
+        if(!isset($foundIcon['error']) && !empty($foundIcon['base64'])){
             $icon = imagecreatefromstring(base64_decode($foundIcon['base64']));
         }
         else{
