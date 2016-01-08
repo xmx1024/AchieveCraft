@@ -26,4 +26,4 @@ ___
 
 ##Icons
 
-Icons are all stored in a MongoDB database. So for Icon.class.php to work you will need the Mongo PHP extension. (Not the new MongoDB extension)
+Icons are all stored in a MongoDB database. But the Icon.class.php doesn't require a Mongo database, it takes a function and when needed it will call that function with the icon id. What ever that function returns is used as the icon. (For example look at line 49 of AchieveCraft.class.php)
