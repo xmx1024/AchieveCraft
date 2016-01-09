@@ -6,7 +6,7 @@
     <title>AchieveCraft - Make Minecraft achievement images</title>
 
     <!-- CSS  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
@@ -47,13 +47,13 @@
 
                     <p class="light">
                     <div class="input-field col" style="width: 100%;">
-                        <input placeholder="Achievement Get" id="top_text" type="text">
-                        <label for="top_text">Top text</label>
+                        <input class="TextSetter topText" placeholder="Achievement Get" id="topText" type="text">
+                        <label for="topText">Top text</label>
                     </div>
 
                     <div class="input-field col" style="width: 100%;">
-                        <input placeholder="Placeholder" id="bottom_text" type="text" class="validate">
-                        <label for="bottom_text">Bottom Text</label>
+                        <input class="TextSetter bottomText" placeholder="Placeholder" id="bottomText" type="text">
+                        <label for="bottomText">Bottom Text</label>
                     </div>
                     </p>
                 </div>
@@ -67,8 +67,7 @@
 
                     <p class="light">
                     <div class="input-field col" style="width: 100%;">
-                        <select id="iconGroupSelect">
-                            <option value="vanilla" selected>Vanilla Minecraft</option>
+                        <select class="IconSelector list groups" id="iconGroupSelect">
                         </select>
                         <label>Choose an icon group</label>
                     </div>
@@ -82,8 +81,7 @@
                     <h5 class="center">Choose an icon</h5>
 
                     <p class="light">
-                        <div class="icon-list" style="overflow-y: auto; height: 150px;">
-                        <div class="icon-preview" data-id="cdb714" style="background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEPUlEQVRYhe2WMY9kSRGEv8is1z3HLSekE6BDeGDi4PG7MPH4A2fh8WPOxMLFw8FBYgVi76Sb7X6vMjCypndve7jBQULiaoxR18uqisqMiCz4bvy/D73/43ef/9r/zcO+fPMVv/nt779x5vgw6A9f/JHTaSDM9Zgg2EZim4dtAyAi2M7JfjXbKZmH2RKUyZzFUeZ722BkUC4MfH25MLbTHag7AK9enfnTn//CGAk2c/YGz42QCAkDmdGThqpeUza2GZn88hc/p57Z6A4AhtO2MV5/RapvkSGk/mgJu+MkExhhqgpJRASSmAXTPX9w8Mn3H3j9ty9fBvBw3qgqIkQgUsEICBuHGBIjhAzYlJLpYgKkkDsjEqhAdJaq6l2Wvg1AEGQGqUFIvDonH4/EiGNOLBOKvpnNJnGOjV0gBbOKEEzDow0lKnR38L8FMKsQq77RMtkyyRCPak6wWJFrzXXuyGBMYUQgwZA4wkjgMo+P15cB7GWqTAiis8osYxlXUXYTzW4C2gwlUxMwKeEqdnyLtSFH8vDR+Q7AXVFOW99LZYaEgOucXPYDW7fbPx0OYJuj5tMnDheaRjRX7GI7nZjPyOC+BLOWPZlZRdEbyG5yLe96OryqmD5IDQzs88ArFnJFNxFxvZyBeLpGBEK4zHkkI5In45xro9a7CQ20bu7WZ8faOCCyyam4V8HdTBG32y3wy5Bm/695O5yVEQEXH2SwDhGSFhDaM2y27d527mZO54EXEbeElLjOLkWVe+NVy7aCdqUtRn/zRNFmpUVC5M7klh8ed5+B/XKgEIU4KvBiPJgI3TJgOjMWHEBhpotyq6BjFmAFuQ0u13sZ3nNgLN1SbJuYuMu5ZJi6sYRYNTWmDAVcZrFX76FVgtAi6z0H7wGoRM1uIo/75In7s+rWvPeaixpmIrT8XwRDIiOR4fFirkfHZYrtmRI82wsiWwFxM53W+LUmoWCLZNocZRRt30/SPWUT8DpNMckMqsSc5nI5XgZwS00I1B3tFEkJVBOpUz3dnCCa7XpvXRWchsEnisnbVbNt/AcZmCvYJRRe0jsQkJEcVVisdheoWuuK1n2VOaqoar/Y50Q5wNUxLwGwq9OuzkCs+h8Fiu54nez+y7VplVkOcJPeLFP0e8IW18v+MoD96E3L5jKNVKiA7P7wDdoup5Pb/S6zG9ApG0SEeg0QI7tkLwEAsx9zPTjg7V5kBFH0/T6QUizXVBWX2V3zSW6SmHPiEez7zum0vQwgMYTwFv0Kkqj1wNDatGu5yJLRzpgQo5bmW8bbNqhIKt+Z04sATufBT3/0KT/71WdEJmMM6phIbhIAmS2riGDu7ZyWyOimc+w783hnyU88eXy8fDuAN/94w34UP/nsh2znjyECR/KDH38C1x3GewT4+rHfjq8GfPQA47SyYuY/33B9e4EwuNf89fXf12vqu/E/Nv4F0iShSfb6QiIAAAAASUVORK5CYII=)"></div>
+                        <div class="IconSelector list icons" style="overflow-y: auto; height: 150px;">
 
                     </div>
                     </p>
@@ -102,7 +100,7 @@
                     <h5 class="center">Preview</h5>
 
                     <p class="light">
-
+                        <img class="Preview image" src="https://achievecraft.net/i/19.1/Achievement%20Get/Make%20an%20Achievement!" width="110%">
                     </p>
                 </div>
             </div>
@@ -110,8 +108,19 @@
             <div class="col s12 m4">
                 <div class="icon-block">
                     <h5 class="center">Links</h5>
+                    <p class="center">(Click to copy to clipboard)</p>
                     <p class="center">
+                    <div class="row">
+                    <div class="input-field col s12">
+                        <input class="clickToCopy Preview link short" data-clipboard-text="if you see this something went wrong" id="shortLink" placeholder="Click to generate" type="text">
+                        <label for="shortLink">Short Link</label>
+                    </div>
 
+                    <div class="input-field col s12">
+                        <input class="clickToCopy Preview link direct" data-clipboard-text="if you see this something went wrong" id="directLink" type="text">
+                        <label for="directLink">Direct Link</label>
+                    </div>
+                        </div>
                     </p>
                 </div>
             </div>
@@ -120,8 +129,19 @@
                 <div class="icon-block">
                     <h5 class="center">Codes</h5>
 
-                    <p class="light">
+                    <p class="center">(Click to copy to clipboard)</p>
+                    <p class="center">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input class="clickToCopy Preview code bb" data-clipboard-text="if you see this something went wrong" id="bbCode" type="text">
+                            <label for="bbCode">Forum (BB) Code</label>
+                        </div>
 
+                        <div class="input-field col s12">
+                            <input class="clickToCopy Preview code html" data-clipboard-text="if you see this something went wrong" id="htmlCode" type="text">
+                            <label for="htmlCode">HTML Code</label>
+                        </div>
+                    </div>
                     </p>
                 </div>
             </div>
@@ -141,13 +161,13 @@
                     <input type="file" name="icons[]" multiple>
                 </div>
                 <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                    <input class="file-path" type="text" placeholder="Upload one or more files">
                 </div>
             </div>
 
             <div class="input-field col">
-                <input id="icon_group_name" name="groupName" type="text" placeholder="Unnamed Icon Group" class="validate">
-                <label for="icon_group_name">Icon Group Name (Optional)</label>
+                <input id="iconGroupName" name="groupName" type="text" placeholder="Unnamed Icon Group">
+                <label for="iconGroupName">Icon Group Name (Optional)</label>
             </div>
             </p>
         </div>
@@ -168,8 +188,9 @@
 
 
 <!--  Scripts-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="js/materialize.min.js"></script>
+<script src="js/clipboard.min.js"></script>
 <script src="js/init.js"></script>
 
 </body>

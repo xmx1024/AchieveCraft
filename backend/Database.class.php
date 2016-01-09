@@ -87,7 +87,7 @@ class Database
         }
     }
 
-    public function newIcon($base64, $groupId = "unlisted"){
+    public function newIcon($base64, $groupId = false){
         $id = $this->getId($base64, function($possibleId){
             return $this->getIcon($possibleId);
         });

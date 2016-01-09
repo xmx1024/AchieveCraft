@@ -1,6 +1,6 @@
 <?php
 
-$AchieveCraft->App()->get('/i/:iconId/:topText(/:bottomText)(/.png)(/)', function ($iconId, $topText, $bottomText) use ($AchieveCraft) {
+$AchieveCraft->App()->get('/i/:iconId/:topText/:bottomText(/.png)(/)', function ($iconId, $topText, $bottomText) use ($AchieveCraft) {
     if (substr($bottomText, -4) == ".png") {
         $bottomText = substr($bottomText, 0, -4);
     }
