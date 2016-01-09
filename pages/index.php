@@ -8,7 +8,38 @@
     <!-- CSS  -->
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="keywords" content="achievecraft,minecraft achievement,minecraft achievement generator,jdf2,jared,hug">
+    <meta name="author" content="Jared (jdf2)">
+    <meta name="description" content="Make custom Minecraft Achievements with Achievecraft!">
+
+    <style>
+        .icon-block {
+            padding: 0 15px;
+        }
+        .icon-block .material-icons {
+            font-size: inherit;
+        }
+
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        .icon-preview{
+            width: 32px;
+            height: 32px;
+            padding-left: 2px;
+            float: left;
+        }
+    </style>
 </head>
 <body>
 <nav class="lighten-1" role="navigation">
@@ -26,7 +57,7 @@
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <br><br>
-        <h1 class="header center" style="color: #ee6e73;">Custom Minecraft Achievements</h1>
+        <h3 class="header center" style="color: #ee6e73;">Custom Minecraft Achievements</h3>
         <div class="row center">
             <h5 class="header col s12 light">This is a remake of achievecraft.com, all old links work just by changing the .com to a .net!</h5>
         </div>
@@ -62,8 +93,8 @@
             <div class="col s12 m4">
                 <div class="icon-block">
                     <h5 class="center">Find some icons</h5>
-                    <p class="center"><a class="waves-effect waves-light btn modal-trigger" href="#uploadIcon">upload a
-                            custom icon</a></p>
+                    <!--<p class="center"><a class="waves-effect waves-light btn modal-trigger" href="#uploadIcon">upload a
+                            custom icon</a></p>-->
 
                     <p class="light">
                     <div class="input-field col" style="width: 100%;">
@@ -71,6 +102,8 @@
                         </select>
                         <label>Choose an icon group</label>
                     </div>
+
+                    Custom icon upload has been removed but will be back very soon.
 
                     </p>
                 </div>
@@ -102,19 +135,20 @@
                     <p class="light">
                         <img class="Preview image" src="https://achievecraft.net/i/19.1/Achievement%20Get/Make%20an%20Achievement!" width="110%">
                     </p>
+
+                    <p class=" light">Click the text boxes to copy it to your clipboard.</p>
                 </div>
             </div>
 
             <div class="col s12 m4">
                 <div class="icon-block">
                     <h5 class="center">Links</h5>
-                    <p class="center">(Click to copy to clipboard)</p>
                     <p class="center">
                     <div class="row">
-                    <div class="input-field col s12">
+                    <!--<div class="input-field col s12">
                         <input class="clickToCopy Preview link short" data-clipboard-text="if you see this something went wrong" id="shortLink" placeholder="Click to generate" type="text">
                         <label for="shortLink">Short Link</label>
-                    </div>
+                    </div>-->
 
                     <div class="input-field col s12">
                         <input class="clickToCopy Preview link direct" data-clipboard-text="if you see this something went wrong" id="directLink" type="text">
@@ -129,7 +163,6 @@
                 <div class="icon-block">
                     <h5 class="center">Codes</h5>
 
-                    <p class="center">(Click to copy to clipboard)</p>
                     <p class="center">
                     <div class="row">
                         <div class="input-field col s12">
@@ -151,7 +184,7 @@
 </div>
 
 <div id="uploadIcon" class="modal">
-    <form action="new/icon" method="POST" enctype="multipart/form-data">
+    <form class="uploadIconForm" action="api/new/icon" method="POST" enctype="multipart/form-data">
         <div class="modal-content">
             <h4>Upload custom icon(s)</h4>
             <p>

@@ -15,6 +15,9 @@ $.fn.finished = function (interval, callback) {
     return this;
 };
 
+/*
+ * I don't like how this code turned out. So I will more than likely redo it eventfully
+ */
 var AchieveCraft = {
     variables: {
         baseUrl: location.protocol + "//" + document.domain + "/"//"http://dev.achievecraft.net/"
@@ -89,44 +92,47 @@ var AchieveCraft = {
                 currentGroup: ""
             },
 
-            onGroupChange: function(group){
+            onGroupChange: function (group) {
                 console.log("Group:", group);
             },
 
-            onIconChange: function(icon){
+            onIconChange: function (icon) {
                 console.log("Icon:", icon);
             },
 
-            setGroup: function(group){
+            setGroup: function (group) {
                 var that = this;
                 this.variables.currentGroup = group;
 
-                $.get(AchieveCraft.variables.baseUrl + "api/get/group/" + group, function(data){
-                    $.each(data.icons, function(a, icon){
-                        that.elements.$iconList.append('<div class="icon-preview" title="'+icon.id+'" data-id="'+icon.id+'" style="background:url(data:image/png;base64,'+icon.base64+')"></div>');
+                $.get(AchieveCraft.variables.baseUrl + "api/get/group/" + group, function (data) {
+                    $.each(data.icons, function (a, icon) {
+                        that.elements.$iconList.append('<div class="icon-preview" title="' + icon.id + '" data-id="' + icon.id + '" style="background:url(data:image/png;base64,' + icon.base64 + '); cursor: pointer; cursor: hand;"></div>');
                     });
 
                     $(".icon-preview").unbind("click");
-                    $(".icon-preview").click(function(){
+                    $(".icon-preview").click(function () {
                         that.onIconChange($(this).attr("data-id"));
                     });
                 });
             },
 
-            init: function(){
+            init: function () {
                 var that = this;
 
                 this.setGroup("vanilla");
 
-                this.elements.$groupSelect.change(function(){
-                    that.onGroupChange($(this).val());
+                this.elements.$groupSelect.change(function () {
                     that.elements.$iconList.html("");
+                    that.onGroupChange($(this).val());
                 });
 
-                $.get(AchieveCraft.variables.baseUrl + "api/get/groups", function(data){
-                    $.each(data, function(a, group){
-                        that.elements.$groupSelect.append('<option value="'+group.id+'" selected>'+group.name+'</option>');
+                $.get(AchieveCraft.variables.baseUrl + "api/get/groups", function (data) {
+                    $.each(data, function (a, group) {
+                        if(group.id !== "vanilla") {
+                            that.elements.$groupSelect.append('<option value="' + group.id + '" selected>' + group.name + '</option>');
+                        }
                     });
+                    that.elements.$groupSelect.append('<option value="vanilla" selected>Vanilla Minecraft</option>');
                     $('select').material_select();
                 });
             }
@@ -168,6 +174,20 @@ var AchieveCraft = {
         this.Components.IconSelector.init();
         this.Components.Preview.init();
         this.Components.TextSetter.init();
+
+        $('.uploadIconForm').submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+                url: 'api/new/icon',
+                type: 'POST',
+                processData: false,
+                contentType: false,
+                data: new FormData(this),
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        });
     }
 };
 
@@ -188,8 +208,12 @@ var AchieveCraft = {
             AchieveCraft.Components.Preview.setBottomText(text);
         };
 
-        AchieveCraft.Components.IconSelector.onIconChange = function(icon){
+        AchieveCraft.Components.IconSelector.onIconChange = function (icon) {
             AchieveCraft.Components.Preview.setIcon(icon);
+        };
+
+        AchieveCraft.Components.IconSelector.onGroupChange = function (group) {
+            AchieveCraft.Components.IconSelector.setGroup(group);
         };
     });
 })(jQuery);

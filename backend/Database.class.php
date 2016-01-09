@@ -31,8 +31,8 @@ class Database
             };
         }
 
-        $id = substr(md5($seed), rand(1, 16), 2) . substr(shell_exec('date +%s%N'), -4, -1);
-        if ($check($id)) {
+        $id = "n".substr(shell_exec('date +%s%N'), -4, -1) . substr(md5($seed), rand(1, 16), 2);
+        if (!$check($id)) {
             return $id;
         } else {
             $this->getId($seed, $check);
