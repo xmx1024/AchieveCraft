@@ -13,8 +13,10 @@ class AchieveCraft{
         require_once $App->config("paths")['backend']['Database'];
         $this->Database = new Database();
 
+        require_once $App->config("paths")['backend']['GoogleAnalyticsMiddleware'];
+        $App->add(new \GoogleAnalyticsMiddleware());
     }
-
+    
     public function App(){
         return $this->App;
     }
@@ -28,7 +30,6 @@ class AchieveCraft{
 
         throw new \Exception($error['message'], $error['code']);
     }
-
 
     public function Achievement($cache = true)
     {

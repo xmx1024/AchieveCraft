@@ -66,8 +66,20 @@
     </div>
 </div>
 
-
 <div class="container">
+    <div class="section">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- AchieveCraft Top (Responsive) -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-1506766466017735"
+             data-ad-slot="1336105404"
+             data-ad-format="auto"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
     <div class="section">
 
         <!--   Icon Section   -->
@@ -103,7 +115,7 @@
                         <label>Choose an icon group</label>
                     </div>
 
-                    Custom icon upload has been removed but will be back very soon.
+                    Custom icon upload has been removed but will be back soon.
 
                     </p>
                 </div>
@@ -151,7 +163,7 @@
                     </div>-->
 
                     <div class="input-field col s12">
-                        <input class="clickToCopy Preview link direct" data-clipboard-text="if you see this something went wrong" id="directLink" type="text">
+                        <input class="clickToCopy Preview link direct" onclick="this.setSelectionRange(0, this.value.length)" data-clipboard-text="if you see this something went wrong" id="directLink" type="text">
                         <label for="directLink">Direct Link</label>
                     </div>
                         </div>
@@ -166,12 +178,12 @@
                     <p class="center">
                     <div class="row">
                         <div class="input-field col s12">
-                            <input class="clickToCopy Preview code bb" data-clipboard-text="if you see this something went wrong" id="bbCode" type="text">
+                            <input class="clickToCopy Preview code bb" onclick="this.setSelectionRange(0, this.value.length)" data-clipboard-text="if you see this something went wrong" id="bbCode" type="text">
                             <label for="bbCode">Forum (BB) Code</label>
                         </div>
 
                         <div class="input-field col s12">
-                            <input class="clickToCopy Preview code html" data-clipboard-text="if you see this something went wrong" id="htmlCode" type="text">
+                            <input class="clickToCopy Preview code html" onclick="this.setSelectionRange(0, this.value.length)" data-clipboard-text="if you see this something went wrong" id="htmlCode" type="text">
                             <label for="htmlCode">HTML Code</label>
                         </div>
                     </div>
@@ -180,6 +192,19 @@
             </div>
         </div>
 
+    </div>
+
+    <div class="section">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- AchieveCraft Bottom (Responsive) -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-1506766466017735"
+             data-ad-slot="2812838600"
+             data-ad-format="auto"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
     </div>
 </div>
 
@@ -225,6 +250,17 @@
 <script src="js/materialize.min.js"></script>
 <script src="js/clipboard.min.js"></script>
 <script src="js/init.js"></script>
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-72185269-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
 
 </body>
 </html>

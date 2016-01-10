@@ -19,7 +19,7 @@ $AchieveCraft->App()->get('/i/:iconId/:topText/:bottomText(/.png)(/)', function 
         $AchieveCraft->App()->etag($Achievement->getCacheId());
         $AchieveCraft->App()->expires('+1 week');
     }
-    $AchieveCraft->App()->response->headers->set('Content-Type', 'Content-type: image/png');
+    $AchieveCraft->App()->response->headers->set('Content-Type', 'image/png');
 
     imagepng($Achievement->getImage());
-});
+})->name('Achievement');

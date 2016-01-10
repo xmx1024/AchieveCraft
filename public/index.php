@@ -5,7 +5,10 @@ use \Slim\Slim AS Slim;
 Slim::registerAutoloader();
 
 $AchieveCraftApp = new Slim(array(
-    "debug" => true
+    "settings" => array(
+        "determineRouteBeforeAppMiddleware" => true,
+        "debug" => true
+    )
 ));
 
 $AchieveCraftApp->config("baseDir", "../");

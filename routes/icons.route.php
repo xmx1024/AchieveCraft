@@ -17,10 +17,10 @@ $AchieveCraft->App()->get('/api/get/icon/:iconId(/)', function ($iconId) use($Ac
         $AchieveCraft->App()->etag($Icon->getCacheId());
         $AchieveCraft->App()->expires('+1 week');
     }
-    $AchieveCraft->App()->response->headers->set('Content-Type', 'Content-type: image/png');
+    $AchieveCraft->App()->response->headers->set('Content-Type', 'image/png');
 
     imagepng($Icon->getImage());
-});
+})->name('Get Icon');
 
 $AchieveCraft->App()->post('/api/new/icon(/)', function () use($AchieveCraft){
     die();
