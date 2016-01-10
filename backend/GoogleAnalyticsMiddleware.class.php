@@ -17,14 +17,16 @@ class GoogleAnalyticsMiddleware extends \Slim\Middleware
         $Request = $App->request;
         $Route = $App->router()->getCurrentRoute();
 
-        if($Route->getName() !== "index" || is_null($App->config("GoogleAnalytics")['trackingId']) || is_null($App->config("GoogleAnalytics")['customerId'])) {
-            $this->Client->pageview(array(
-                'tid' => $App->config("GoogleAnalytics")['trackingId'],
-                'cid' => $App->config("GoogleAnalytics")['customerId'],
-                'dh' => $App->config("domain"),
-                'dp' => $Request->getResourceUri(),
-                'dt' => $Route->getName()
-            ));
+        if(is_object($Route)) {
+            if ($Route->getName() !== "index" || is_null($App->config("GoogleAnalytics")['trackingId']) || is_null($App->config("GoogleAnalytics")['customerId'])) {
+                $this->Client->pageview(array(
+                    'tid' => $App->config("GoogleAnalytics")['trackingId'],
+                    'cid' => $App->config("GoogleAnalytics")['customerId'],
+                    'dh' => $App->config("domain"),
+                    'dp' => $Request->getResourceUri(),
+                    'dt' => $Route->getName()
+                ));
+            }
         }
     }
 }

@@ -15,6 +15,13 @@ $.fn.finished = function (interval, callback) {
     return this;
 };
 
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
 /*
  * I don't like how this code turned out. So I will more than likely redo it eventfully
  */
@@ -215,5 +222,9 @@ var AchieveCraft = {
         AchieveCraft.Components.IconSelector.onGroupChange = function (group) {
             AchieveCraft.Components.IconSelector.setGroup(group);
         };
+
+        if(getParameterByName("customid")){
+            AchieveCraft.Components.Preview.setIcon("c" + getParameterByName("customid"));
+        }
     });
 })(jQuery);

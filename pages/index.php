@@ -45,11 +45,11 @@
 <nav class="lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">AchieveCraft</a>
         <ul class="right hide-on-med-and-down">
-            <li><a href="#">GitHub</a></li>
+            <li><a href="https://github.com/jdf221/AchieveCraft">GitHub</a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
-            <li><a href="#">GitHub</a></li>
+            <li><a href="https://github.com/jdf221/AchieveCraft">GitHub</a></li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
@@ -239,7 +239,7 @@
 <footer class="page-footer">
     <div class="footer-copyright">
         <div class="container">
-            Made by Jared. Using <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>.
+            Made by <a class="orange-text text-lighten-3" href="https://twitter.com/jdf221">Jared</a>. Using <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>.
         </div>
     </div>
 </footer>
@@ -257,7 +257,7 @@
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    ga('create', 'UA-72185269-1', 'auto');
+    ga('create', 'UA-72185269-2', 'auto');
     ga('send', 'pageview');
 
 </script>

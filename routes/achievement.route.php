@@ -1,6 +1,6 @@
 <?php
 
-$AchieveCraft->App()->get('/i/:iconId/:topText/:bottomText(/.png)(/)', function ($iconId, $topText, $bottomText) use ($AchieveCraft) {
+$AchievementRoute = function ($iconId, $topText, $bottomText) use ($AchieveCraft) {
     $cache = $AchieveCraft->App()->request->get("cache");
     if($cache == "false") $cache = false; else $cache = true;
     if(!$AchieveCraft->App()->config("allowCacheOption")) $cache = true;
@@ -22,4 +22,12 @@ $AchieveCraft->App()->get('/i/:iconId/:topText/:bottomText(/.png)(/)', function 
     $AchieveCraft->App()->response->headers->set('Content-Type', 'image/png');
 
     imagepng($Achievement->getImage());
+};
+
+$AchieveCraft->App()->get('/i/:iconId/:topText/:bottomText(/.png)(/)', function ($iconId, $topText, $bottomText) use ($AchievementRoute) {
+    $AchievementRoute($iconId, $topText, $bottomText);
+})->name('Achievement');
+
+$AchieveCraft->App()->get('/mcimage/:iconId/:topText/:bottomText(/.png)(/)', function ($iconId, $topText, $bottomText) use ($AchievementRoute) {
+    $AchievementRoute($iconId, $topText, $bottomText);
 })->name('Achievement');
