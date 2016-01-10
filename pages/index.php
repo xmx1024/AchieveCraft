@@ -60,6 +60,8 @@
         <h3 class="header center" style="color: #ee6e73;">Custom Minecraft Achievements</h3>
         <div class="row center">
             <h5 class="header col s12 light">This is a remake of achievecraft.com, all old links work just by changing the .com to a .net!</h5>
+
+            <p class="s12 light">Avatars now redirect to <a href="http://mc-heads.net">mc-heads.net</a></p>
         </div>
         <br><br>
 
@@ -257,7 +259,12 @@
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    ga('create', 'UA-72185269-2', 'auto');
+    if(document.domain == "dev.achievecraft.net"){
+        ga('create', 'UA-72185269-2', 'auto');
+    }
+    else{
+        ga('create', 'UA-72185269-1', 'auto');
+    }
     ga('send', 'pageview');
 
 </script>

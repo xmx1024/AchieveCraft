@@ -28,6 +28,9 @@ $AchieveCraft->App()->get('/i/:iconId/:topText/:bottomText(/.png)(/)(mca.png)(/)
     $AchievementRoute($iconId, $topText, $bottomText);
 })->name('Achievement');
 
-$AchieveCraft->App()->get('/mcimage/:iconId/:topText/:bottomText(/.png)(/)(mca.png)(/)', function ($iconId, $topText, $bottomText) use ($AchievementRoute) {
+$AchieveCraft->App()->get('/(m)cimage/:iconId/:topText/:bottomText(/.png)(/)(mca.png)(/)', function ($iconId, $topText, $bottomText) use ($AchievementRoute) {
+    if (substr($iconId, 0, 1) == "i") {
+        $iconId = substr($iconId, 1);
+    }
     $AchievementRoute($iconId, $topText, $bottomText);
 })->name('Achievement');

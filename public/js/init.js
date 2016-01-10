@@ -68,7 +68,7 @@ var AchieveCraft = {
             },
 
             update: function () {
-                this.variables.url = AchieveCraft.variables.baseUrl + "i/" + this.variables.icon + "/" + encodeURIComponent(this.variables.topText) + "/" + encodeURIComponent(this.variables.bottomText);
+                this.variables.url = AchieveCraft.variables.baseUrl + "i/" + this.variables.icon + "/" + encodeURIComponent(this.variables.topText) + "/" + encodeURIComponent(this.variables.bottomText) + ".png";
 
                 this.elements.$image.attr("src", this.variables.url);
 
