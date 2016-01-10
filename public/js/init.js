@@ -80,7 +80,7 @@ var AchieveCraft = {
 
             init: function () {
                 this.update();
-                new Clipboard('.clickToCopy');
+                //new Clipboard('.clickToCopy');
             }
         },
         IconSelector: {

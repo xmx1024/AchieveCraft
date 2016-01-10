@@ -2,6 +2,9 @@
 
 return array(
     "index" => "http://dev.achievecraft.net/",
+
+    "allowCacheOption" => false,
+
     "defaults" => array(
         "achievement" => array(
             "background" => $AchieveCraftApp->config("baseDir") . "assets/images/achievementbg.png",
@@ -30,8 +33,8 @@ return array(
         "cache" => $AchieveCraftApp->config("baseDir") . "cache/"
     ),
     "errors" => array(
-        "uker" => "Unknown error",
-        "ukdb" => "Unknown database error",
-        "nor" => "No resource was found"
+        "1" => "Unknown error",
+        "2" => "Unknown database error",
+        "3" => "No resource was found"
     )
 );

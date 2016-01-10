@@ -136,7 +136,7 @@
                         <img class="Preview image" src="https://achievecraft.net/i/19.1/Achievement%20Get/Make%20an%20Achievement!" width="110%">
                     </p>
 
-                    <p class=" light">Click the text boxes to copy it to your clipboard.</p>
+                    <!--<p class=" light">Click the text boxes to copy it to your clipboard.</p>-->
                 </div>
             </div>
 

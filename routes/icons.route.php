@@ -1,16 +1,22 @@
 <?php
 
 $AchieveCraft->App()->get('/api/get/icon/:iconId(/)', function ($iconId) use($AchieveCraft){
+    $cache = $AchieveCraft->App()->request->get("cache");
+    if($cache == "false") $cache = false; else $cache = true;
+    if(!$AchieveCraft->App()->config("allowCacheOption")) $cache = true;
+
     if (substr($iconId, -4) == ".png") {
         $iconId = substr($iconId, 0, -4);
     }
 
 
-    $Icon = $AchieveCraft->Icon();
+    $Icon = $AchieveCraft->Icon($cache);
     $Icon->setIconId($iconId);
 
-    $AchieveCraft->App()->etag($Icon->getCacheId());
-    $AchieveCraft->App()->expires('+1 week');
+    if($cache) {
+        $AchieveCraft->App()->etag($Icon->getCacheId());
+        $AchieveCraft->App()->expires('+1 week');
+    }
     $AchieveCraft->App()->response->headers->set('Content-Type', 'Content-type: image/png');
 
     imagepng($Icon->getImage());

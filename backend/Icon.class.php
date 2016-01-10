@@ -31,12 +31,12 @@ class Icon
     private function getIcon()
     {
         $getIconFunction = $this->getIconFunction;
-        $foundIcon = $getIconFunction($this->iconId);
+        try {
+            $foundIcon = $getIconFunction($this->iconId);
 
-        if(!isset($foundIcon['error']) && !empty($foundIcon['base64'])){
             $icon = imagecreatefromstring(base64_decode($foundIcon['base64']));
         }
-        else{
+        catch(\Exception $e){
             $icon = imagecreatefrompng($this->missingIcon);
         }
 

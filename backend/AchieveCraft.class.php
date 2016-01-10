@@ -24,11 +24,13 @@ class AchieveCraft{
     }
 
     private function error($code){
-        return array("code" => $code, "message" => $this->App()->config("errors")[$code]);
+        $error = array("code" => $code, "message" => $this->App()->config("errors")[$code]);
+
+        throw new \Exception($error['message'], $error['code']);
     }
 
 
-    public function Achievement()
+    public function Achievement($cache = true)
     {
         require_once $this->App()->config("paths")['backend']['Achievement'];
         require_once $this->App()->config("paths")['backend']['CacheWrapper'];
@@ -36,12 +38,15 @@ class AchieveCraft{
         $Achievement = new Achievement();
         $Achievement->setFont($this->App()->config("defaults")['achievement']['font'])->setBackground($this->App()->config("defaults")['achievement']['background']);
 
-        $AchievementCacheWrapper = new CacheWrapper($this->App()->config("paths")['cache'], $Achievement);
-
-        return $AchievementCacheWrapper;
+        if($cache) {
+            return new CacheWrapper($this->App()->config("paths")['cache'], $Achievement);
+        }
+        else{
+            return $Achievement;
+        }
     }
 
-    public function Icon(){
+    public function Icon($cache = true){
         require_once $this->App()->config("paths")['backend']['Icon'];
         require_once $this->App()->config("paths")['backend']['CacheWrapper'];
 
@@ -50,18 +55,21 @@ class AchieveCraft{
         });
         $Icon->setMissingIcon($this->App()->config("defaults")['icon']['missing']);
 
-        $IconCacheWrapper = new CacheWrapper($this->App()->config("paths")['cache'], $Icon);
-
-        return $IconCacheWrapper;
+        if($cache) {
+            return new CacheWrapper($this->App()->config("paths")['cache'], $Icon);
+        }
+        else{
+            return $Icon;
+        }
     }
 
 
     public function getPublicGroups(){
-        $return = array("error" => $this->error("uker")); //Unknown error
+        $return = array();
         $groups = $this->Database()->getPublicGroups();
 
         if(empty($groups)){
-            $return = array("error" => $this->error("nor")); //No resource was found
+            $this->error("3"); //No resource was found
         }
         else if(is_array($groups)){
             $return = $groups;
@@ -71,11 +79,11 @@ class AchieveCraft{
     }
 
     public function getGroup($id){
-        $return = array("error" => $this->error("uker")); //Unknown error
+        $return = array();
         $group = $this->Database()->getGroup($id);
 
         if(!$group){
-            $return = array("error" => $this->error("nor")); //No resource was found
+            $this->error("3"); //No resource was found
         }
         else if(is_array($group)){
             $group['icons'] = $this->Database()->getGroupIcons($id);
@@ -85,12 +93,29 @@ class AchieveCraft{
         return $return;
     }
 
+    public function supportOldIds($iconId){
+        $icon = false;
+
+        if(substr($iconId, 0, 1) == "p"){
+            $name = substr($iconId, 1);
+            $icon = array("id" => $iconId, "groupId" => "playerheads", "base64" => base64_encode(file_get_contents("http://mc-heads.net/avatar/".$name."/32")));
+        }
+
+        return $icon;
+    }
+
     public function getIcon($id){
-        $return = array("error" => $this->error("uker")); //Unknown error
-        $icon = $this->Database()->getIcon($id);
+        $return = array();
+        $oldIcon = $this->supportOldIds($id); //Might not be prettiest way to support the old ones but what ever
+        if($oldIcon){
+            $icon = $oldIcon;
+        }
+        else {
+            $icon = $this->Database()->getIcon($id);
+        }
 
         if(!$icon){
-            $return = array("error" => $this->error("nor")); //No resource was found
+            $this->error("3"); //No resource was found
         }
         else if(is_array($icon)){
             $return = $icon;

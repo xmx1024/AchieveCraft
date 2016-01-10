@@ -24,4 +24,3 @@ foreach ($routers as $router) {
 $AchieveCraftApp->run();
 
 //TODO: Make sure to add a `c` to the beginning of ids coming from ?customid param
-//TODO: Support old player icons
