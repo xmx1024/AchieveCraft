@@ -24,10 +24,10 @@ $AchievementRoute = function ($iconId, $topText, $bottomText) use ($AchieveCraft
     imagepng($Achievement->getImage());
 };
 
-$AchieveCraft->App()->get('/i/:iconId/:topText/:bottomText(/.png)(/)', function ($iconId, $topText, $bottomText) use ($AchievementRoute) {
+$AchieveCraft->App()->get('/i/:iconId/:topText/:bottomText(/.png)(/)(mca.png)(/)', function ($iconId, $topText, $bottomText) use ($AchievementRoute) {
     $AchievementRoute($iconId, $topText, $bottomText);
 })->name('Achievement');
 
-$AchieveCraft->App()->get('/mcimage/:iconId/:topText/:bottomText(/.png)(/)', function ($iconId, $topText, $bottomText) use ($AchievementRoute) {
+$AchieveCraft->App()->get('/mcimage/:iconId/:topText/:bottomText(/.png)(/)(mca.png)(/)', function ($iconId, $topText, $bottomText) use ($AchievementRoute) {
     $AchievementRoute($iconId, $topText, $bottomText);
 })->name('Achievement');
