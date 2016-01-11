@@ -67,6 +67,8 @@ class Achievement
         imagefttext($achievement, 12, 0, 60, 28, imagecolorallocate($achievement, 255, 255, 0), $this->font, $this->topText);
         imagefttext($achievement, 12, 0, 60, 50, imagecolorallocate($achievement, 255, 255, 255), $this->font, $this->bottomText);
 
+        //imagefttext($achievement, 6, 0, 10, 57, imagecolorallocate($achievement, 255, 255, 0), $this->font, "achievecraft.net");
+
         return $achievement;
     }
 

@@ -5,6 +5,10 @@ $AchievementRoute = function ($iconId, $topText, $bottomText) use ($AchieveCraft
     if($cache == "false") $cache = false; else $cache = true;
     if(!$AchieveCraft->App()->config("allowCacheOption")) $cache = true;
 
+    if(is_array($bottomText)){
+        $bottomText = implode("/", $bottomText);
+    }
+
     if (substr($bottomText, -4) == ".png") {
         $bottomText = substr($bottomText, 0, -4);
     }
@@ -24,11 +28,11 @@ $AchievementRoute = function ($iconId, $topText, $bottomText) use ($AchieveCraft
     imagepng($Achievement->getImage());
 };
 
-$AchieveCraft->App()->get('/i/:iconId/:topText/:bottomText(/.png)(/)(mca.png)(/)', function ($iconId, $topText, $bottomText) use ($AchievementRoute) {
+$AchieveCraft->App()->get('/i/:iconId/:topText/:bottomText+(/.png)(/)(mca.png)(/)', function ($iconId, $topText, $bottomText) use ($AchievementRoute) {
     $AchievementRoute($iconId, $topText, $bottomText);
 })->name('Achievement');
 
-$AchieveCraft->App()->get('/(m)cimage/:iconId/:topText/:bottomText(/.png)(/)(mca.png)(/)', function ($iconId, $topText, $bottomText) use ($AchievementRoute) {
+$AchieveCraft->App()->get('/(m)cimage/:iconId/:topText/:bottomText+(/.png)(/)(mca.png)(/)', function ($iconId, $topText, $bottomText) use ($AchievementRoute) {
     if (substr($iconId, 0, 1) == "i") {
         $iconId = substr($iconId, 1);
     }

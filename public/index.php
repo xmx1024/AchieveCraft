@@ -26,4 +26,4 @@ foreach ($routers as $router) {
 
 $AchieveCraftApp->run();
 
-//TODO: Make sure to add a `c` to the beginning of ids coming from ?customid param
+//TODO: Maybe move the Achievement and Icon class into it's own composer package. Then create it's own github repo and use the composer.json for loading it.
